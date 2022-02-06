@@ -10,6 +10,7 @@
     bits 64
 
     section .data
+
     ; variables
 
     ;global g_some_asm_var
@@ -17,12 +18,16 @@
 
 ;g_some_asm_var dd ?
 
-    section .text
+;***************************************************************************
+
+section .text
+
     ; functions
 
     ;global some_asm_function
     ;extern some_c_function
 
 ;some_asm_function:
+    ;ret
 
 
