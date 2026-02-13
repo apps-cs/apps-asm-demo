@@ -18,10 +18,10 @@
     ; list of public variables
     global g_a_first_last, g_a_4chars, g_a_byte_int, g_a_int
 
-g_a_first_last dd      0,0                 ; int[ 2 ]
-g_a_4chars     db      0,0,0,0,0           ; char[ 5 ]
-g_a_byte_int   dd      0                   ; int
-g_a_int        dd      0                   ; int
+g_a_first_last dd      0,0                  ; int[ 2 ]
+g_a_4chars     db      0,0,0,0,0            ; char[ 5 ]
+g_a_byte_int   dd      0                    ; int
+g_a_int        dd      0                    ; int
 
     section .text
 
@@ -60,8 +60,8 @@ access_array:
     mov [ g_a_first_last + 0 ], eax
 
     mov rcx, 0
-    mov ecx, dword [ g_c_array_length ]   ; length of array
-    mov eax, [ g_c_array + ( rcx - 1 ) * 4 ] 
+    mov ecx, dword [ g_c_array_length ]     ; length of array
+    mov eax, [ g_c_array + ( rcx - 1 ) * 4 ]
     mov [ g_a_first_last + 1 * 4 ], eax
     ret
 
@@ -71,7 +71,7 @@ access_array:
     global access_string
 access_string:
     ; Function rewrites first word in string g_c_hello
-    ; and moves content of variable g_c_4chars to strin_4chars. 
+    ; and moves content of variable g_c_4chars to strin_4chars.
     mov [ g_c_hello + 0 ], byte 'N'
     mov [ g_c_hello + 1 ], byte 'i'
     mov [ g_c_hello + 2 ], byte 'c'
@@ -86,5 +86,5 @@ access_string:
     mov al, [ g_c_4chars + 3 ]
     mov [ g_a_4chars + 3 ], al
     ret
-    
+
 

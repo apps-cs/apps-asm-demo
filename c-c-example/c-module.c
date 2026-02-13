@@ -25,18 +25,18 @@ extern int g_main_pub_x;
 // public function
 int tool_fun_pub()
 {
-  g_main_pub_x = 40;
-  //g_main_loc_x = 30; // impossible
-  g_module_pub_x = 20;
-  g_module_loc_x = 10;
+    g_main_pub_x = 40;
+    //g_main_loc_x = 30; // impossible
+    g_module_pub_x = 20;
+    g_module_loc_x = 10;
 }
 
 // local function
 static int tool_fun_loc()
 {
-  g_main_pub_x = 100;
-  //g_main_loc_x = 200; //impossible
-  g_module_pub_x = 300;
-  g_module_loc_x = 400;
+    g_main_pub_x = 100;
+    //g_main_loc_x = 200; //impossible
+    g_module_pub_x = 300;
+    g_module_loc_x = 400;
 }
 

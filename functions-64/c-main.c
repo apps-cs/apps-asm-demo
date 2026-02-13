@@ -25,7 +25,7 @@ int sum_int_array( int *t_array, int t_N );
 // average of array
 int average_int_array( int *t_array, int t_N );
 
-// length of string 
+// length of string
 long strlength( char *t_str );
 
 // division of two int with remainder

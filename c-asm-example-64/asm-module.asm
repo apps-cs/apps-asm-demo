@@ -40,7 +40,7 @@ set_variables:
 
     leave
     ret
-    
+
 ;***************************************************************************
     ; move value from g_value into g_index
 
@@ -49,12 +49,12 @@ set_variables:
 move_int_values:
     enter 0,0
 
-    mov ecx, [ g_value ]    ; ecx = g_value
-    mov [ g_index ], ecx    ; g_index = ecx
+    mov ecx, [ g_value ]                    ; ecx = g_value
+    mov [ g_index ], ecx                    ; g_index = ecx
 
     leave
     ret
-    
+
 ;***************************************************************************
     ; move value from g_character into g_integer
 
@@ -63,12 +63,12 @@ move_int_values:
 move_char_to_int:
     enter 0,0
 
-    movsx eax, byte [ g_character ] ; eax = g_character
-    mov [ g_integer ], eax          ; g_integer = eax
+    movsx eax, byte [ g_character ]         ; eax = g_character
+    mov [ g_integer ], eax                  ; g_integer = eax
 
     leave
     ret
-    
+
 ;***************************************************************************
     ; move value from g_integer into g_longint
 
@@ -77,12 +77,12 @@ move_char_to_int:
 move_int_to_long:
     enter 0,0
 
-    movsx rax, dword [ g_integer ]  ; rax = g_integer
-    mov [ g_longint ], rax          ; g_longing = rax
+    movsx rax, dword [ g_integer ]          ; rax = g_integer
+    mov [ g_longint ], rax                  ; g_longing = rax
 
     leave
     ret
-    
+
 ;***************************************************************************
     ; rewrite content of global string
 
@@ -91,13 +91,13 @@ move_int_to_long:
 set_string:
     enter 0,0
 
-    mov byte [ g_string + 5 ], 'w'      ; g_string[ 5 ] = 'w'
-    mov byte [ g_string + 6 ], 'e'      ; g_string[ 6 ] = 'e'
-    mov byte [ g_string + 7 ], 'e'      ; g_string[ 7 ] = 'e'
-    mov byte [ g_string + 8 ], 'n'      ; g_string[ 8 ] = 'n'
-    mov byte [ g_string + 9 ], ':'      ; g_string[ 9 ] = ':'
-    mov byte [ g_string + 10 ], '-'     ; g_string[ 10 ] = '-'
-    mov byte [ g_string + 11 ], ')'     ; g_string[ 11 ] = ')'
+    mov byte [ g_string + 5 ], 'w'          ; g_string[ 5 ] = 'w'
+    mov byte [ g_string + 6 ], 'e'          ; g_string[ 6 ] = 'e'
+    mov byte [ g_string + 7 ], 'e'          ; g_string[ 7 ] = 'e'
+    mov byte [ g_string + 8 ], 'n'          ; g_string[ 8 ] = 'n'
+    mov byte [ g_string + 9 ], ':'          ; g_string[ 9 ] = ':'
+    mov byte [ g_string + 10 ], '-'         ; g_string[ 10 ] = '-'
+    mov byte [ g_string + 11 ], ')'         ; g_string[ 11 ] = ')'
 
     leave
     ret
@@ -118,7 +118,7 @@ set_int_array:
 
     leave
     ret
-    
+
 ;***************************************************************************
     ; rewrite content of global array
 
@@ -127,15 +127,15 @@ set_int_array:
 set_long_array:
     enter 0,0
 
-    mov qword [ g_long_array + 1 * 8 ], -10     ; g_long_array[ 1 ] = -10
-    mov qword [ g_long_array + 3 * 8 ], -20     ; g_long_array[ 3 ] = -20
-    mov qword [ g_long_array + 5 * 8 ], -30     ; g_long_array[ 5 ] = -30
-    mov qword [ g_long_array + 7 * 8 ], -40     ; g_long_array[ 7 ] = -40
-    mov qword [ g_long_array + 9 * 8 ], -50     ; g_long_array[ 9 ] = -50
+    mov qword [ g_long_array + 1 * 8 ], -10 ; g_long_array[ 1 ] = -10
+    mov qword [ g_long_array + 3 * 8 ], -20 ; g_long_array[ 3 ] = -20
+    mov qword [ g_long_array + 5 * 8 ], -30 ; g_long_array[ 5 ] = -30
+    mov qword [ g_long_array + 7 * 8 ], -40 ; g_long_array[ 7 ] = -40
+    mov qword [ g_long_array + 9 * 8 ], -50 ; g_long_array[ 9 ] = -50
 
     leave
     ret
- 
+
 ;***************************************************************************
     ; rewrite one character of g_string at g_index position
 
@@ -145,12 +145,12 @@ set_string_index:
     enter 0,0
 
     mov rax, 0
-    mov eax, [ g_index ]                ; 64-bit address
-    mov byte [ g_string + rax ], '.'    ; g_string[ g_index ] = '.'
+    mov eax, [ g_index ]                    ; 64-bit address
+    mov byte [ g_string + rax ], '.'        ; g_string[ g_index ] = '.'
 
     leave
     ret
- 
+
 ;***************************************************************************
     ; rewrite one element of g_int_array at g_index position
 
@@ -165,7 +165,7 @@ set_int_array_index:
 
     leave
     ret
- 
+
 ;***************************************************************************
     ; rewrite one element of g_long_array at g_index position
 
@@ -180,7 +180,7 @@ set_long_array_index:
 
     leave
     ret
- 
+
 ;***************************************************************************
     ; rewrite one character of g_string at g_index position with g_value
 
@@ -189,14 +189,14 @@ set_long_array_index:
 set_string_index_value:
     enter 0,0
 
-    mov cl, [ g_value ]         ; cl = g_value
+    mov cl, [ g_value ]                     ; cl = g_value
     mov rax, 0
-    mov eax, [ g_index ]        ; 64-bit address
-    mov [ g_string + rax ], cl  ; g_string[ g_index ] = cl
+    mov eax, [ g_index ]                    ; 64-bit address
+    mov [ g_string + rax ], cl              ; g_string[ g_index ] = cl
 
     leave
     ret
- 
+
 ;***************************************************************************
     ; rewrite one element of g_int_array at g_index position with g_value
 
@@ -205,13 +205,13 @@ set_string_index_value:
 set_int_array_index_value:
     enter 0,0
 
-    mov ecx, [ g_value ]                ; ecx = g_value
-    movsx rax, dword [ g_index ]        ; 64-bit address
-    mov [ g_int_array + rax * 4 ], ecx  ; g_int_array[ g_index ] = ecx
+    mov ecx, [ g_value ]                    ; ecx = g_value
+    movsx rax, dword [ g_index ]            ; 64-bit address
+    mov [ g_int_array + rax * 4 ], ecx      ; g_int_array[ g_index ] = ecx
 
     leave
     ret
- 
+
 ;***************************************************************************
     ; rewrite one element of g_long_array at g_index position with g_value
 
@@ -220,9 +220,9 @@ set_int_array_index_value:
 set_long_array_index_value:
     enter 0,0
 
-    movsx rcx, dword [ g_value ]        ; rcx = g_value with sign extension
-    movsx rax, dword [ g_index ]        ; 64-bit address
-    mov [ g_long_array + rax * 8 ], rcx ; g_long_array[ g_index ] = rcx
+    movsx rcx, dword [ g_value ]            ; rcx = g_value with sign extension
+    movsx rax, dword [ g_index ]            ; 64-bit address
+    mov [ g_long_array + rax * 8 ], rcx     ; g_long_array[ g_index ] = rcx
 
     leave
     ret
